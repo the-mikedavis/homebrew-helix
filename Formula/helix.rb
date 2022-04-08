@@ -5,10 +5,10 @@ class Helix < Formula
   license "MPL-2.0"
 
   on_macos do
-    # We don't need a Hardware::CPU.intel? check here. The x86_64 binary
-    # will also work for ARM64.
-    url "https://github.com/helix-editor/helix/releases/download/#{version}/helix-#{version}-x86_64-macos.tar.xz"
-    sha256 "4624be398aff68af39c40ef401ec95a2d8722ae724328c1204afb663ffde72fb"
+    if Hardware::CPU.intel?
+      url "https://github.com/helix-editor/helix/releases/download/#{version}/helix-#{version}-x86_64-macos.tar.xz"
+      sha256 "4624be398aff68af39c40ef401ec95a2d8722ae724328c1204afb663ffde72fb"
+    end
   end
 
   on_linux do
